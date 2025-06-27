@@ -1,36 +1,202 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AutoMint - Decentralized Web3 Invoicing System
+
+AutoMint is a mobile-first Web3 application for creating and managing invoices on Ethereum-compatible testnets. Built with Next.js, it allows merchants to create invoices that customers can pay directly with cryptocurrency.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- A Privy account (for Web3 authentication)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd automint
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file in the root directory and add:
+
+```env
+# Privy Configuration (Required)
+NEXT_PUBLIC_PRIVY_APP_ID=your_privy_app_id_here
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id_here
+
+# App Configuration
+NEXT_PUBLIC_APP_NAME=AutoMint
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+4. Get your Privy App ID:
+   - Go to [Privy Console](https://console.privy.io)
+   - Create a new app or use an existing one
+   - Copy your App ID from the dashboard
+   - Add it to your `.env.local` file
+
+5. (Optional) Get WalletConnect Project ID:
+   - Go to [WalletConnect Cloud](https://cloud.walletconnect.com)
+   - Create a new project
+   - Copy the Project ID
+
+### Running the Application
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                     # Next.js app router
+│   ├── dashboard/          # Protected dashboard page
+│   ├── login/              # Login page (redirects to onboarding)
+│   ├── layout.tsx          # Root layout with Web3 providers
+│   └── page.tsx            # Landing page with onboarding flow
+├── components/
+│   ├── dashboard/          # Dashboard components
+│   │   └── Dashboard.tsx   # Main dashboard component
+│   └── onboarding/         # Onboarding flow components
+│       └── OnboardingFlow.tsx
+└── providers/
+    └── Web3Providers.tsx   # Privy and Wagmi configuration
+```
 
-## Learn More
+## Onboarding Flow
 
-To learn more about Next.js, take a look at the following resources:
+The app includes a 4-step mobile-first onboarding process:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Welcome** - Introduction to AutoMint
+2. **Features** - Highlighting key benefits
+3. **Security** - Emphasizing blockchain security
+4. **Connect** - Web3 wallet connection via Privy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Authentication
 
-## Deploy on Vercel
+Authentication is handled by Privy SDK with support for:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Email authentication
+- Wallet connections (MetaMask, WalletConnect, etc.)
+- Embedded wallets for users without existing wallets
+- Social logins (Google, Twitter, Discord)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Supported Chains
+
+- Ethereum Mainnet
+- Ethereum Sepolia (testnet)
+- Base
+- Base Sepolia (testnet)
+- Polygon
+- Polygon Mumbai (testnet)
+
+## Configuration
+
+### Privy Configuration
+
+The Privy provider is configured in `src/providers/Web3Providers.tsx` with:
+
+- Custom appearance and branding
+- Embedded wallet creation for new users
+- Multiple login methods
+- Multi-chain support
+
+### Mobile Optimization
+
+- Touch-friendly buttons (44px minimum)
+- Mobile-first responsive design
+- Optimized font sizes and spacing
+- Smooth animations and transitions
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_PRIVY_APP_ID` | Your Privy app ID | Yes |
+| `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` | WalletConnect project ID | No |
+| `NEXT_PUBLIC_APP_NAME` | App name for branding | No |
+| `NEXT_PUBLIC_APP_URL` | App URL for redirects | No |
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy
+
+### Other Platforms
+
+1. Build the application:
+```bash
+npm run build
+```
+
+2. Start the production server:
+```bash
+npm start
+```
+
+## Development
+
+### Adding New Features
+
+1. Create components in appropriate directories
+2. Use TypeScript for type safety
+3. Follow mobile-first design principles
+4. Test on multiple screen sizes
+
+### Styling
+
+- Uses Tailwind CSS for styling
+- Custom CSS variables for theming
+- Mobile-first responsive design
+- Dark mode support ready
+
+## Troubleshooting
+
+### Common Issues
+
+1. **"Web3 configuration error"**
+   - Ensure `NEXT_PUBLIC_PRIVY_APP_ID` is set correctly
+   - Check that your Privy app is properly configured
+
+2. **Build errors**
+   - Run `npm install` to ensure all dependencies are installed
+   - Check for TypeScript errors with `npm run lint`
+
+3. **Wallet connection issues**
+   - Verify supported chains in Privy dashboard
+   - Check network connectivity
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Support
+
+For issues and questions:
+- Check the GitHub issues
+- Consult Privy documentation
+- Reach out to the development team
