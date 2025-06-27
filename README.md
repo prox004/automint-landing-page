@@ -1,51 +1,50 @@
-# AutoMint - Decentralized Web3 Invoicing System
+# AutoMint Landing Page
 
-AutoMint is a mobile-first Web3 application for creating and managing invoices on Ethereum-compatible testnets. Built with Next.js, it allows merchants to create invoices that customers can pay directly with cryptocurrency.
+A modern, responsive marketing website for AutoMint - a decentralized Web3 invoicing system. This landing page showcases the features and benefits of AutoMint, built with Next.js 15, React 19, Tailwind CSS, and Framer Motion for smooth animations.
 
-## Getting Started
+## 🚀 Features
+
+- **Modern Design**: Clean, professional UI with dark/light theme support
+- **Responsive**: Mobile-first design that looks great on all devices
+- **Interactive**: Smooth animations and micro-interactions using Framer Motion
+- **Performance**: Optimized with Next.js 15 and React 19
+- **Accessibility**: Built with accessibility best practices
+- **SEO Ready**: Optimized for search engines
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **React**: React 19
+- **Styling**: Tailwind CSS 4.1
+- **Animations**: Framer Motion
+- **UI Components**: Radix UI primitives
+- **Icons**: Lucide React
+- **Theme**: next-themes for dark/light mode
+- **TypeScript**: Full type safety
+
+## 📦 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
-- A Privy account (for Web3 authentication)
+- Node.js 18 or higher
+- npm, yarn, or pnpm
 
 ### Installation
 
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
-cd automint
+cd automint-landing-page
 ```
 
 2. Install dependencies:
 ```bash
 npm install
+# or
+yarn install
+# or
+pnpm install
 ```
-
-3. Set up environment variables:
-Create a `.env.local` file in the root directory and add:
-
-```env
-# Privy Configuration (Required)
-NEXT_PUBLIC_PRIVY_APP_ID=your_privy_app_id_here
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_wallet_connect_project_id_here
-
-# App Configuration
-NEXT_PUBLIC_APP_NAME=AutoMint
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-```
-
-4. Get your Privy App ID:
-   - Go to [Privy Console](https://console.privy.io)
-   - Create a new app or use an existing one
-   - Copy your App ID from the dashboard
-   - Add it to your `.env.local` file
-
-5. (Optional) Get WalletConnect Project ID:
-   - Go to [WalletConnect Cloud](https://cloud.walletconnect.com)
-   - Create a new project
-   - Copy the Project ID
 
 ### Running the Application
 
