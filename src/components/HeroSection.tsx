@@ -57,7 +57,7 @@ export function HeroSection() {
                 variant="outline"
                 size="lg"
                 className="px-8 py-6 text-md font-semibold border-2 hover:bg-accent/10"
-                onClick={() => window.open("https://github.com/prox004/automint", "_blank")}
+                onClick={() => window.open("https://github.com/prox004/automint", "noopener,noreferrer")}
               >
                 View Demo
               </Button>
