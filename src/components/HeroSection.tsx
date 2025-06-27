@@ -24,7 +24,7 @@ export function HeroSection() {
                 AutoMint
               </span>
               <br />
-              <span className="text-xl md:text-3xl text-gray-200 font-semibold">
+              <span className="text-xl md:text-3xl text-muted-foreground font-semibold">
                 Decentralized Smart Invoice Revolution
               </span>
             </h1>
@@ -42,6 +42,9 @@ export function HeroSection() {
                 className="px-8 py-6 text-md font-semibold transition-transform duration-300 hover:scale-105"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={() =>
+                  window.open("https://automint-beta.vercel.app/", "_blank", "noopener,noreferrer")
+                }
               >
                 Launch AutoMint
                 <ArrowRight
@@ -54,6 +57,7 @@ export function HeroSection() {
                 variant="outline"
                 size="lg"
                 className="px-8 py-6 text-md font-semibold border-2 hover:bg-accent/10"
+                onClick={() => window.open("https://github.com/prox004/automint", "_blank")}
               >
                 View Demo
               </Button>

@@ -46,8 +46,8 @@ export function Navbar() {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4 pr-3">
             <ThemeToggle />
-            <Button variant="outline">Launch App</Button>
-            <Button>View On Github</Button>
+            <Button variant="outline" onClick={() => window.open("https://automint-beta.vercel.app/", "_blank", "noopener,noreferrer")}>Launch App</Button>
+            <Button onClick={() => window.open("https://github.com/prox004/automint", "_blank", "noopener,noreferrer")}>View On Github</Button>
           </div>
 
           {/* Mobile menu button */}
