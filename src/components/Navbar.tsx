@@ -47,7 +47,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-4 pr-3">
             <ThemeToggle />
             <Button variant="outline">Launch App</Button>
-            <Button>Get Started</Button>
+            <Button>View On Github</Button>
           </div>
 
           {/* Mobile menu button */}
